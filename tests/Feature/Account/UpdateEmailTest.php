@@ -33,7 +33,7 @@ it('updates the email address to a valid unique address', function () {
     $user = User::factory()->create(['email' => 'old@example.com']);
 
     $this->actingAs($user)
-        ->put('/account/settings', ['email' => 'new@example.com'])
+        ->put('/account/settings', ['name' => $user->name, 'email' => 'new@example.com'])
         ->assertSessionHasNoErrors();
 
     $this->assertDatabaseHas('users', [
@@ -46,7 +46,7 @@ it('takes effect immediately — the customer can log in with the new email', fu
     $user = User::factory()->create(['email' => 'old@example.com', 'password' => 'password123']);
 
     $this->actingAs($user)
-        ->put('/account/settings', ['email' => 'new@example.com']);
+        ->put('/account/settings', ['name' => $user->name, 'email' => 'new@example.com']);
 
     $this->post('/logout');
 

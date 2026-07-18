@@ -20,10 +20,10 @@ const formatDate = (dateString) => {
         <div class="flex items-center gap-2 mb-2">
             <img
                 :src="note.user.avatar_url"
-                :alt="`${note.user.name} avatar`"
+                :alt="`${note.user.full_name} avatar`"
                 class="h-6 w-6 rounded-full"
             >
-            <span class="text-sm font-medium text-neutral-900">{{ note.user.name }}</span>
+            <span class="text-sm font-medium text-neutral-900">{{ note.user.full_name }}</span>
             <span class="text-xs text-neutral-400">{{ formatDate(note.created_at) }}</span>
         </div>
         <p class="text-sm text-neutral-700 whitespace-pre-line">{{ note.body }}</p>

@@ -16,7 +16,9 @@ class UserResource extends JsonResource
     {
         return [
             'id' => $this->id,
-            'name' => $this->name,
+            'first_name' => $this->first_name,
+            'last_name' => $this->last_name,
+            'full_name' => $this->fullName(),
             'email' => $this->when($this->resource->is($request->user()), $this->email),
             'is_team_member' => $this->is_team_member,
             'avatar_url' => $this->avatarUrl(),

@@ -58,13 +58,13 @@ const formatDate = (dateString) => {
             </div>
 
             <p class="text-xs uppercase tracking-wider text-neutral-400 mb-6">
-                Submitted by {{ idea.user.name }} on {{ formatDate(idea.created_at) }}
+                Submitted by {{ idea.user.full_name }} on {{ formatDate(idea.created_at) }}
             </p>
 
             <div v-if="idea.latest_status_update?.message" class="mb-6 rounded-none border-l-2 border-neutral-900 bg-neutral-50 p-4">
                 <p class="text-sm text-neutral-700 whitespace-pre-line">{{ idea.latest_status_update.message }}</p>
                 <p class="mt-2 text-xs uppercase tracking-wider text-neutral-400">
-                    {{ idea.latest_status_update.user?.name ?? 'Team' }} — {{ formatDate(idea.latest_status_update.created_at) }}
+                    {{ idea.latest_status_update.user?.full_name ?? 'Team' }} — {{ formatDate(idea.latest_status_update.created_at) }}
                 </p>
             </div>
 

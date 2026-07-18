@@ -44,7 +44,7 @@ const formatDate = (dateString) => {
                 <div class="min-w-0 flex-1">
                     <span class="font-semibold text-neutral-900">{{ idea.title }}</span>
                     <div class="flex items-center gap-3 mt-1 text-xs text-neutral-400">
-                        <span>{{ idea.user.name }}</span>
+                        <span>{{ idea.user.full_name }}</span>
                         <span>{{ formatDate(idea.created_at) }}</span>
                         <span v-if="idea.comments_count !== undefined">{{ idea.comments_count }} {{ idea.comments_count === 1 ? 'comment' : 'comments' }}</span>
                     </div>

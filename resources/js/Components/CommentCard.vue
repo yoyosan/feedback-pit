@@ -22,10 +22,10 @@ const formatDate = (dateString) => {
         <div class="flex items-center gap-2 mb-2">
             <img
                 :src="comment.user.avatar_url"
-                :alt="`${comment.user.name} avatar`"
+                :alt="`${comment.user.full_name} avatar`"
                 class="h-6 w-6 rounded-full"
             >
-            <span class="text-sm font-medium text-neutral-900">{{ comment.user.name }}</span>
+            <span class="text-sm font-medium text-neutral-900">{{ comment.user.full_name }}</span>
             <StaffBadge v-if="comment.user.is_team_member" />
             <span class="text-xs text-neutral-400">{{ formatDate(comment.created_at) }}</span>
         </div>

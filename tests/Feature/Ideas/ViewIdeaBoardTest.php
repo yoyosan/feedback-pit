@@ -19,7 +19,7 @@ it('renders the home page with ideas', function () {
             ->component('Dashboard')
             ->has('ideas', 1)
             ->where('ideas.0.title', 'My great idea')
-            ->where('ideas.0.user.name', $user->name)
+            ->where('ideas.0.user.full_name', $user->fullName())
         );
 });
 

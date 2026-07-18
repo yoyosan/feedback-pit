@@ -40,7 +40,7 @@ const logout = () => {
                             <button type="button" class="flex items-center p-1" @click="dropdownOpen = !dropdownOpen">
                                 <img
                                     :src="user.avatar_url"
-                                    :alt="`${user.name} avatar`"
+                                    :alt="`${user.full_name} avatar`"
                                     class="h-7 w-7 rounded-full"
                                 >
                             </button>
@@ -78,7 +78,7 @@ const logout = () => {
                         <img
                             v-if="user"
                             :src="user.avatar_url"
-                            :alt="`${user.name} avatar`"
+                            :alt="`${user.full_name} avatar`"
                             class="h-7 w-7 rounded-full"
                         >
 

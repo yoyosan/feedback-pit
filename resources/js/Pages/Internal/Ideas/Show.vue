@@ -49,7 +49,7 @@ const formatDate = (dateString) => {
             </div>
 
             <div class="flex items-center gap-4 text-xs text-neutral-400 mb-6">
-                <span>Submitted by {{ idea.user.name }} on {{ formatDate(idea.created_at) }}</span>
+                <span>Submitted by {{ idea.user.full_name }} on {{ formatDate(idea.created_at) }}</span>
                 <span>{{ idea.votes }} {{ idea.votes === 1 ? 'vote' : 'votes' }}</span>
             </div>
 
@@ -65,7 +65,7 @@ const formatDate = (dateString) => {
                 <ul class="space-y-3">
                     <li v-for="update in idea.status_updates" :key="update.id" class="text-sm">
                         <div class="flex flex-wrap items-center gap-2 text-neutral-600">
-                            <span class="font-medium text-neutral-900">{{ update.user?.name ?? 'Team' }}</span>
+                            <span class="font-medium text-neutral-900">{{ update.user?.full_name ?? 'Team' }}</span>
                             <span>moved this from</span>
                             <StatusBadge :status="update.from_status" />
                             <span>to</span>

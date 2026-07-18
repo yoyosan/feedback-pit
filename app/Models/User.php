@@ -20,7 +20,8 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'email',
         'password',
         'is_team_member',
@@ -55,9 +56,14 @@ class User extends Authenticatable
         return $this->is_team_member;
     }
 
+    public function fullName(): string
+    {
+        return trim($this->first_name.' '.$this->last_name);
+    }
+
     public function avatarUrl(int $size = 56): string
     {
-        return 'https://ui-avatars.com/api/?name='.urlencode($this->name).'&background=171717&color=fff&size='.$size.'&font-size=0.38';
+        return 'https://ui-avatars.com/api/?name='.urlencode($this->fullName()).'&background=171717&color=fff&size='.$size.'&font-size=0.38';
     }
 
     /**

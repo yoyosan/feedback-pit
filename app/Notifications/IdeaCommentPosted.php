@@ -32,7 +32,7 @@ class IdeaCommentPosted extends Notification implements ShouldQueue
             ->subject('New comment on "'.$idea->title.'"')
             ->markdown('mail.ideas.comment-posted', [
                 'idea' => $idea,
-                'commenterName' => $this->comment->user->name,
+                'commenterName' => $this->comment->user->fullName(),
                 'excerpt' => Str::limit($this->comment->body, 280),
                 'ideaUrl' => route('feedback.show', $idea),
                 'unsubscribeUrl' => URL::signedRoute('feedback.unsubscribe', [

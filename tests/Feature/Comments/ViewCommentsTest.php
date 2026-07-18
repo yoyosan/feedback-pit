@@ -55,13 +55,13 @@ it('shows comments in chronological order', function () {
 
 it('includes the comment author name and team member flag', function () {
     $idea = Idea::factory()->for(User::factory())->create();
-    $teamUser = User::factory()->teamMember()->create(['name' => 'Staff Person']);
+    $teamUser = User::factory()->teamMember()->create(['first_name' => 'Staff', 'last_name' => 'Person']);
     Comment::factory()->for($idea)->for($teamUser)->create();
 
     $this->get(route('feedback.show', $idea))
         ->assertOk()
         ->assertInertia(fn (AssertableInertia $page) => $page
-            ->where('comments.0.user.name', 'Staff Person')
+            ->where('comments.0.user.full_name', 'Staff Person')
             ->where('comments.0.user.is_team_member', true)
         );
 });

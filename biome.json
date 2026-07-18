@@ -1,0 +1,15 @@
+{
+  "html": {
+    "linter": {
+      "enabled": true
+    },
+    "experimentalFullSupportEnabled": true
+  },
+  "formatter": {
+    "lineWidth": 120
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  }
+}
